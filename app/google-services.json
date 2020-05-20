@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "891632689228",
+    "firebase_url": "https://mensajeria-instantanea-cb9f1.firebaseio.com",
+    "project_id": "mensajeria-instantanea-cb9f1",
+    "storage_bucket": "mensajeria-instantanea-cb9f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891632689228:android:5bc2c3d2860b64a62954e9",
+        "android_client_info": {
+          "package_name": "com.uisrael.mensajeriainstantanea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891632689228-a5hfoi0c4rmcf5fl7gorrkhimancbtkm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uisrael.mensajeriainstantanea",
+            "certificate_hash": "5e71c59efda07c768a156eb620d701c06f190d7a"
+          }
+        },
+        {
+          "client_id": "891632689228-e910t4hk3a35lohpic9856pb58e4995p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuaNdQz7PhciomYHFL_7H0JyCfmrO6YqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891632689228-e910t4hk3a35lohpic9856pb58e4995p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
