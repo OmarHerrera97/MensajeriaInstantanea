@@ -127,11 +127,15 @@ public class MessageActivity extends AppCompatActivity {
                     if (chat.getRecibe().equals("kQkUezIxkYWQiMiWB3xWucQT49s2") && chat.getEnvia().equals("xfxhsNjYeQc8OytDNZUPVeTGbuH2") ||
                             chat.getRecibe().equals("xfxhsNjYeQc8OytDNZUPVeTGbuH2") && chat.getEnvia().equals("kQkUezIxkYWQiMiWB3xWucQT49s2")) {
                         mChat.add(chat);
+
+
                     }
                 }
                 messageAdapter = new MessageAdapter(MessageActivity.this, mChat, imageurl);
                 recyclerView.setAdapter(messageAdapter);
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
