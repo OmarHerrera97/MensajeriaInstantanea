@@ -97,7 +97,7 @@ public class StartActivity extends AppCompatActivity {
 
             case R.id.cerrarsesion:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(StartActivity.this, LoginActivity.class));
+                startActivity(new Intent(StartActivity.this, MainActivity.class));
                 finish();
                 return  true;
         }

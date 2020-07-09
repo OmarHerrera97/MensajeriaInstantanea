@@ -25,6 +25,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="#0A68D8"
+        android:onClick="login"
         android:text="Iniciar Sesión"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
