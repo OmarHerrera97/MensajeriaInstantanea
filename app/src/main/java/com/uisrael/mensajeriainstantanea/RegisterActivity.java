@@ -77,7 +77,7 @@ public class RegisterActivity extends Activity {
                             reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
 
                             HashMap<String, String> hashMap = new HashMap<>();
-                            //   hashMap.put("Id", userid);
+                            hashMap.put("Id", userid);
                             hashMap.put("username", username);
                             hashMap.put("imageURL", "default");
                             hashMap.put("email", email);

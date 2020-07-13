@@ -13,6 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="#688cb7"
+        android:onClick="Register"
         android:text="Registrate aqui"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"

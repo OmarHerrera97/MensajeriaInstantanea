@@ -35,7 +35,6 @@ public class LoginActivity extends Activity {
     Button btnLogin;
     FirebaseAuth auth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +42,8 @@ public class LoginActivity extends Activity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
+        auth =FirebaseAuth.getInstance();
         //Añadido
-
-
-
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -71,7 +71,8 @@ public class MessageActivity extends AppCompatActivity {
                 String msg = text_send.getText().toString();
                 if (!msg.equals("")) {
                     //Cambiar el id del que se chatea y en user Adapter
-                    sendMessage(fuser.getUid(), "kQkUezIxkYWQiMiWB3xWucQT49s2", msg);
+                    sendMessage(fuser.getUid(), "NYJVSac2BQVW8IlSnjE0Cz7mL392", msg);
+                    //sendMessage(fuser.getUid(), "kQkUezIxkYWQiMiWB3xWucQT49s2", msg);
                 } else {
                     Toast.makeText(MessageActivity.this, "No puedes enviar mensaje en blanco", Toast.LENGTH_SHORT).show();
                 }
@@ -81,7 +82,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
         //Cambiar el id del que se chatea y en user Adapter
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child("kQkUezIxkYWQiMiWB3xWucQT49s2");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child("NYJVSac2BQVW8IlSnjE0Cz7mL392");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -95,7 +96,7 @@ public class MessageActivity extends AppCompatActivity {
                     Glide.with(MessageActivity.this).load(user.getImageURL()).into(profile_image);
                 }
 
-                ReadMessage(fuser.getUid(), "kQkUezIxkYWQiMiWB3xWucQT49s2", user.getImageURL());
+                ReadMessage(fuser.getUid(), "NYJVSac2BQVW8IlSnjE0Cz7mL392", user.getImageURL());
             }
 
             @Override
@@ -124,8 +125,8 @@ public class MessageActivity extends AppCompatActivity {
                 mChat.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Chat chat = snapshot.getValue(Chat.class);
-                    if (chat.getRecibe().equals("kQkUezIxkYWQiMiWB3xWucQT49s2") && chat.getEnvia().equals("xfxhsNjYeQc8OytDNZUPVeTGbuH2") ||
-                            chat.getRecibe().equals("xfxhsNjYeQc8OytDNZUPVeTGbuH2") && chat.getEnvia().equals("kQkUezIxkYWQiMiWB3xWucQT49s2")) {
+                    if (chat.getRecibe().equals("NYJVSac2BQVW8IlSnjE0Cz7mL392") && chat.getEnvia().equals("C6WTsT1MdsbqKLF6TT5DjjQ4How1") ||
+                            chat.getRecibe().equals("C6WTsT1MdsbqKLF6TT5DjjQ4How1") && chat.getEnvia().equals("NYJVSac2BQVW8IlSnjE0Cz7mL392")) {
                         mChat.add(chat);
 
 

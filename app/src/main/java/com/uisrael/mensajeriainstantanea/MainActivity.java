@@ -22,6 +22,8 @@ public class MainActivity extends Activity {
 
     public void login(View view){
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
-
+    }
+    public void Register(View view){
+        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
     }
 }

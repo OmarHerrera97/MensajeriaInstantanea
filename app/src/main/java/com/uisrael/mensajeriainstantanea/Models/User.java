@@ -1,7 +1,8 @@
 package com.uisrael.mensajeriainstantanea.Models;
 
 public class User {
-    private String id ="IAQijEFIJVVJjwXwMk8tXgpWNyL2";
+    private String id = "dddsfsdfsd";
+    //private String id ="IAQijEFIJVVJjwXwMk8tXgpWNyL2";
     private String  username;
     private String imageURL;
 

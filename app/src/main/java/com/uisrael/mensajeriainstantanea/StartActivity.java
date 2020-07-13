@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.uisrael.mensajeriainstantanea.Fragments.ChatsFragment;
+import com.uisrael.mensajeriainstantanea.Fragments.ProfileFragment;
 import com.uisrael.mensajeriainstantanea.Fragments.UsersFragment;
 import com.uisrael.mensajeriainstantanea.Models.User;
 
@@ -79,6 +80,7 @@ public class StartActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragments(new ChatsFragment(),"Chats");
         viewPagerAdapter.addFragments(new UsersFragment(),"Usuarios");
+        viewPagerAdapter.addFragments(new ProfileFragment(),"Perfil");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
