@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -30,13 +31,14 @@ public class RegisterActivity extends Activity {
 
     FirebaseAuth auth;
     DatabaseReference reference;
+    private ProgressDialog dialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        dialog = new ProgressDialog(this);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -70,6 +72,9 @@ public class RegisterActivity extends Activity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            dialog.setMessage("Espere un momento....");
+                            dialog.setCanceledOnTouchOutside(false);
+                            dialog.show();
                             FirebaseUser firebaseUser = auth.getCurrentUser();
                             assert firebaseUser != null;
                             String userid = firebaseUser.getUid();
@@ -100,7 +105,7 @@ public class RegisterActivity extends Activity {
                             Toast.makeText(RegisterActivity.this, "No se puede registrar", Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+                });dialog.dismiss();
     }
 
 }

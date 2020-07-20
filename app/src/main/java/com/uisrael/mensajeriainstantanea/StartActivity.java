@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,14 +42,14 @@ public class StartActivity extends AppCompatActivity {
 
     TextView username;
     CircleImageView profile_image;
-
+    private ProgressDialog dialog;
     FirebaseUser firebaseUser;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        dialog = new ProgressDialog(this);
 
         username = findViewById(R.id.username);
         profile_image = findViewById(R.id.profile_image);
@@ -80,7 +81,7 @@ public class StartActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        viewPagerAdapter.addFragments(new ChatsFragment(),"Chats");
+       // viewPagerAdapter.addFragments(new ChatsFragment(),"Chats");
         viewPagerAdapter.addFragments(new UsersFragment(),"Usuarios");
         viewPagerAdapter.addFragments(new ProfileFragment(),"Perfil");
 
@@ -100,11 +101,15 @@ public class StartActivity extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.cerrarsesion:
+                dialog.setMessage("Cerrando Sesión....");
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(StartActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                startActivity(new Intent(StartActivity.this, LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
            //     finish();
                 return  true;
         }
+        dialog.dismiss();
         return  false;
     }
 

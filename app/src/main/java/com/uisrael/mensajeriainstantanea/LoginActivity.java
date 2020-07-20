@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class LoginActivity extends Activity {
     EditText email, password;
     Button btnLogin;
     FirebaseAuth auth;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class LoginActivity extends Activity {
         password = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
         auth =FirebaseAuth.getInstance();
+        dialog = new ProgressDialog(this);
         //Añadido
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,9 @@ public class LoginActivity extends Activity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        dialog.setMessage("Espere un momento....");
+                                        dialog.setCanceledOnTouchOutside(false);
+                                        dialog.show();
                                         Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
@@ -66,10 +72,20 @@ public class LoginActivity extends Activity {
                                         Toast.makeText(LoginActivity.this, "No se pudo iniciar sesion", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-                            });
+                            });dialog.dismiss();
                 }
             }
         });
+    }
+
+    public void Register(View v ){
+        Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(i);
+    }
+
+    public void ResetPa(View v ){
+        Intent i = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+        startActivity(i);
     }
 
 
