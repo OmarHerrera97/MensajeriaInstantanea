@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "891632689228-evq10ctsj4h70b7ishn3rvhn0vic9971.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uisrael.mensajeriainstantanea",
+            "certificate_hash": "5f1b31100c079a7db59bb6d04e0d9674a06a134b"
+          }
+        },
+        {
           "client_id": "891632689228-a5hfoi0c4rmcf5fl7gorrkhimancbtkm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

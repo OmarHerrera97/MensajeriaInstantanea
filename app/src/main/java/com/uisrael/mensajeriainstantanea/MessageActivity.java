@@ -48,6 +48,8 @@ public class MessageActivity extends AppCompatActivity {
 
     Intent intent;
 
+    ValueEventListener seenListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +95,8 @@ public class MessageActivity extends AppCompatActivity {
                 if ("default".equals(user.getImageURL())) {
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 } else {
-                    Glide.with(MessageActivity.this).load(user.getImageURL()).into(profile_image);
+
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                 }
 
                 ReadMessage(fuser.getUid(), "NYJVSac2BQVW8IlSnjE0Cz7mL392", user.getImageURL());
@@ -104,7 +107,33 @@ public class MessageActivity extends AppCompatActivity {
 
             }
         });
+        seenMessage("NYJVSac2BQVW8IlSnjE0Cz7mL392");
     }
+
+    private void seenMessage(String userid) {
+        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        seenListener = reference.addValueEventListener(new ValueEventListener() {
+                                                           @Override
+                                                           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                               for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                                   Chat chat = snapshot.getValue(Chat.class);
+                                                                   if (chat.getRecibe().equals("NYJVSac2BQVW8IlSnjE0Cz7mL392") && chat.getEnvia().equals("C6WTsT1MdsbqKLF6TT5DjjQ4How1") ||
+                                                                           chat.getRecibe().equals("C6WTsT1MdsbqKLF6TT5DjjQ4How1") && chat.getEnvia().equals("NYJVSac2BQVW8IlSnjE0Cz7mL392")) {
+                                                                       HashMap<String, Object> hashMap = new HashMap<>();
+                                                                       hashMap.put("isseen", false);
+                                                                       snapshot.getRef().updateChildren(hashMap);
+                                                                   }
+                                                               }
+                                                           }
+
+                                                           @Override
+                                                           public void onCancelled(@NonNull DatabaseError error) {
+
+                                                           }
+                                                       }
+        );
+    }
+
 
     private void sendMessage(String sender, String receiver, String message) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -112,6 +141,7 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("envia", sender);
         hashMap.put("recibe", receiver);
         hashMap.put("mensaje", message);
+        hashMap.put("isseen", false);
 
         reference.child("Chats").push().setValue(hashMap);
     }
@@ -137,12 +167,32 @@ public class MessageActivity extends AppCompatActivity {
             }
 
 
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+    }
 
+    private void status(String status) {
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+
+        reference.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("En linea");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        reference.removeEventListener(seenListener);
+        status("Desconectado ");
     }
 }

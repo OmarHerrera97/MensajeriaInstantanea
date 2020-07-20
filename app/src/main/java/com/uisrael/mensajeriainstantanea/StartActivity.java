@@ -32,6 +32,7 @@ import com.uisrael.mensajeriainstantanea.Fragments.UsersFragment;
 import com.uisrael.mensajeriainstantanea.Models.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -63,7 +64,8 @@ public class StartActivity extends AppCompatActivity {
                 if(user.getImageURL().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 }else{
-                    Glide.with(StartActivity.this).load(user.getImageURL()).into(profile_image);
+
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                 }
             }
 
@@ -99,8 +101,8 @@ public class StartActivity extends AppCompatActivity {
 
             case R.id.cerrarsesion:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(StartActivity.this, MainActivity.class));
-                finish();
+                startActivity(new Intent(StartActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+           //     finish();
                 return  true;
         }
         return  false;
@@ -137,5 +139,26 @@ public class StartActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return titles.get(position);
         }
+    }
+
+    private void status(String status){
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object >hashMap = new HashMap<>();
+        hashMap.put("status",status);
+
+        reference.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("En linea");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("Desconectado ");
     }
 }

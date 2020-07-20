@@ -2,13 +2,13 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="8dp"
+    android:padding="10dp"
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_alignParentEnd="true"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignParentRight="true">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -26,8 +26,16 @@
             android:id="@+id/show_message"
             android:textSize="18sp"
             android:textColor="#fff"
-            android:padding="8dp"
+            android:padding="10dp"
             android:layout_alignParentRight="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtseen"
+            android:layout_below="@id/show_message"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
 
 
