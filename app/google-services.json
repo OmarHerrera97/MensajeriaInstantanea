@@ -8,26 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:891632689228:android:5bc2c3d2860b64a62954e9",
+        "mobilesdk_app_id": "1:891632689228:android:ede4b9b5a5bf76bc2954e9",
         "android_client_info": {
-          "package_name": "com.uisrael.mensajeriainstantanea"
+          "package_name": "com.uisrael.chatapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "891632689228-evq10ctsj4h70b7ishn3rvhn0vic9971.apps.googleusercontent.com",
+          "client_id": "891632689228-tfr3ukct4qfuvckhklic0ou2ve9h81k3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.uisrael.mensajeriainstantanea",
-            "certificate_hash": "5f1b31100c079a7db59bb6d04e0d9674a06a134b"
-          }
-        },
-        {
-          "client_id": "891632689228-a5hfoi0c4rmcf5fl7gorrkhimancbtkm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.uisrael.mensajeriainstantanea",
-            "certificate_hash": "5e71c59efda07c768a156eb620d701c06f190d7a"
+            "package_name": "com.uisrael.chatapp",
+            "certificate_hash": "b81fc80dffb94bae31997c7ffc4f512465b7ad5c"
           }
         },
         {

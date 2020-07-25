@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  android:background="@drawable/degraded"
+    android:background="@drawable/degraded"
     tools:context=".LoginActivity">
-
     <TextView
         android:id="@+id/tvReset"
         android:layout_width="wrap_content"
@@ -14,7 +13,6 @@
         android:layout_marginStart="210dp"
         android:layout_marginLeft="210dp"
         android:layout_marginTop="20dp"
-        android:onClick="ResetPa"
         android:text="Olvidaste tu contraseña?"
         android:textColor="#fff"
         android:textSize="16sp"
@@ -24,12 +22,11 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:background="#0A68D8"
-        android:onClick="Register"
         android:text="Registrate Aqui"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -56,7 +54,8 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Contraseña"
-        android:inputType="textPersonName"
+        android:textColor="#fff"
+        android:inputType="textPassword"
         android:textColorHint="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -71,8 +70,9 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Correo Electronico"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:textColorHint="#fff"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,5 +101,6 @@
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

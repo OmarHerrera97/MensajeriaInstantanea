@@ -8,21 +8,19 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/profile_image"/>
+        android:id="@+id/profile_image"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/username"
         android:text="username"
-        android:layout_toRightOf="@+id/profile_image"
-        android:layout_toEndOf="@+id/profile_image"
-        android:layout_marginLeft="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp" />
+        android:id="@+id/username"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_toEndOf="@id/profile_image"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:textSize="18sp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15dp"
@@ -32,7 +30,7 @@
         android:id="@+id/img_on"
         android:visibility="gone"
         android:src="@mipmap/ic_launcher"
-        android:layout_below="@+id/username"
+        android:layout_below="@id/username"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="-15dp"
         android:layout_toRightOf="@id/profile_image"
@@ -46,10 +44,22 @@
         android:id="@+id/img_off"
         android:visibility="gone"
         android:src="@mipmap/ic_launcher"
-        android:layout_below="@+id/username"
+        android:layout_below="@id/username"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="-15dp"
         android:layout_toRightOf="@id/profile_image"
         android:layout_toEndOf="@id/profile_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_marginTop="5dp"
+        android:paddingTop="5dp"
+        android:id="@+id/last_msg"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="20dp"
+        android:maxLines="1"/>
 
 </RelativeLayout>
